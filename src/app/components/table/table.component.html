@@ -1,4 +1,25 @@
 <div>
-  <h2>Table</h2>
-
+  <p-table
+    [value]="tasks"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [paginator]="true"
+    [rows]="5"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn=id>ID<p-sortIcon field="id"></p-sortIcon></th>
+        <th pSortableColumn=text>Text<p-sortIcon field="text"></p-sortIcon></th>
+        <th pSortableColumn=day>Day<p-sortIcon field="day"></p-sortIcon></th>
+        <th pSortableColumn=reminder>Reminder<p-sortIcon field="reminder"></p-sortIcon></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-task>
+      <tr>
+        <td>{{ task.id }}</td>
+        <td>{{ task.text }}</td>
+        <td>{{ task.day }}</td>
+        <td>{{ task.reminder }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>

@@ -13,6 +13,7 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
 import {ToggleButtonModule} from "primeng/togglebutton";
 import { TableComponent } from './components/table/table.component';
 import {RouterModule, Routes} from "@angular/router";
+import {TableModule} from "primeng/table";
 
 const appRoutes: Routes = [
   {path: '', component: TasksComponent},
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
     FormsModule,
     ToggleButtonModule,
     RouterModule.forRoot(appRoutes),
+    TableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
