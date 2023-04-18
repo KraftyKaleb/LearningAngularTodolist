@@ -10,7 +10,7 @@
       "id": 2,
       "text": "Make a Todo List",
       "day": "Today",
-      "reminder": false
+      "reminder": true
     },
     {
       "id": 3,

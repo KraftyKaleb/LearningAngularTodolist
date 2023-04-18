@@ -11,6 +11,13 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import {ToggleButtonModule} from "primeng/togglebutton";
+import { TableComponent } from './components/table/table.component';
+import {RouterModule, Routes} from "@angular/router";
+
+const appRoutes: Routes = [
+  {path: '', component: TasksComponent},
+  {path: 'table', component: TableComponent}
+]
 
 @NgModule({
   declarations: [
@@ -19,7 +26,8 @@ import {ToggleButtonModule} from "primeng/togglebutton";
     ButtonComponent,
     TasksComponent,
     TaskItemComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +35,7 @@ import {ToggleButtonModule} from "primeng/togglebutton";
     HttpClientModule,
     FormsModule,
     ToggleButtonModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent]
