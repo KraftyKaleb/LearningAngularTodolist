@@ -1,27 +1,8 @@
 <header>
-    <!--<p-tabMenu [model]="items"></p-tabMenu>-->
-
     <h1>{{ title }}</h1>
-    <div class="buttons">
-        <app-button
-                *ngIf="hasRoute('/')"
-                color="green"
-                text="{{ showAddTask ? 'Close' : 'Add'}}"
-                (btnClick)="toggleAddTask()"></app-button>
-        <app-button
-                *ngIf="hasRoute('/')"
-                color="green"
-                text="Table"
-
-                (btnClick)="goToPage('/table')"></app-button>
-        <app-button
-                *ngIf="hasRoute('/table')"
-                color="green"
-                text="Go Back"
-
-                (btnClick)="goToPage('/')"></app-button>
-        <div class="switch">
-            <p-inputSwitch [(ngModel)]="darkMode" (onChange)="toggleTheme()"></p-inputSwitch>
-        </div>
+    <p-menubar [model]="items"></p-menubar>
+    <div class="switch">
+        <p-inputSwitch [(ngModel)]="darkMode" (onChange)="toggleTheme()"></p-inputSwitch>
     </div>
+
 </header>

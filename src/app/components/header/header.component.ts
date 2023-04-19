@@ -1,8 +1,7 @@
 import {Component} from '@angular/core';
-import {UiService} from "../../services/ui.service";
 import {Subscription} from "rxjs";
-import {Router} from "@angular/router";
 import {ThemeService} from "../../services/theme.service";
+import {MenuItem} from "primeng/api";
 
 @Component({
     selector: 'app-header',
@@ -10,32 +9,22 @@ import {ThemeService} from "../../services/theme.service";
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-    ngOnInit() {
-    }
-
     title = 'To-Do!';
-    showAddTask!: boolean;
-    subscription!: Subscription;
+    darkMode!: boolean;
     themeSubscription!: Subscription;
-    darkMode: any;
+    items!: MenuItem[];
 
-    constructor(private uiService: UiService, private router: Router, private themeService: ThemeService) {
-        this.subscription = this.uiService.onToggle().subscribe(value => (this.showAddTask = value));
-        this.themeSubscription = this.themeService.onToggle().subscribe(value => (this.darkMode = value))
+    constructor(private themeService: ThemeService) {
+        this.darkMode = themeService.getTheme();
+        this.themeSubscription = this.themeService.onToggle().subscribe(value => (this.darkMode = value));
     }
 
-
-
-    toggleAddTask() {
-        this.uiService.toggleAddTask()
-    }
-
-    goToPage(route: string) {
-        this.router.navigate([route]);
-    }
-
-    hasRoute(route: string) {
-        return this.router.url === route;
+    ngOnInit() {
+        this.items = [
+            { label: 'Home', routerLink: ['/']},
+            { label: 'Table', routerLink: ['/table']},
+            { label: 'About', disabled: true, tooltip: 'Coming soon!'}
+        ];
     }
 
     toggleTheme() {

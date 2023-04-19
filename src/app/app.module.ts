@@ -19,6 +19,7 @@ import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.com
 import {InputSwitchModule} from "primeng/inputswitch";
 import {MenubarModule} from "primeng/menubar";
 import {TabMenuModule} from "primeng/tabmenu";
+import {CookieService} from "ngx-cookie-service";
 
 const appRoutes: Routes = [
     {path: '', component: TasksComponent},
@@ -49,7 +50,7 @@ const appRoutes: Routes = [
         MenubarModule,
         TabMenuModule,
     ],
-    providers: [],
+    providers: [CookieService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
