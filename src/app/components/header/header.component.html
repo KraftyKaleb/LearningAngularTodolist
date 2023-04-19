@@ -1,22 +1,22 @@
 <header>
-  <h1>{{ title }}</h1>
-  <div class="buttons">
-    <app-button
-      *ngIf="hasRoute('/')"
-      color="green"
-      text="{{ showAddTask ? 'Close' : 'Add'}}"
-      (btnClick)="toggleAddTask()"></app-button>
-    <app-button
-      *ngIf="hasRoute('/')"
-      color="green"
-      text="Table"
+    <h1>{{ title }}</h1>
+    <div class="buttons">
+        <app-button
+                *ngIf="hasRoute('/')"
+                color="green"
+                text="{{ showAddTask ? 'Close' : 'Add'}}"
+                (btnClick)="toggleAddTask()"></app-button>
+        <app-button
+                *ngIf="hasRoute('/')"
+                color="green"
+                text="Table"
 
-      (btnClick)="goToPage('/table')"></app-button>
-    <app-button
-      *ngIf="hasRoute('/table')"
-      color="green"
-      text="Go Back"
+                (btnClick)="goToPage('/table')"></app-button>
+        <app-button
+                *ngIf="hasRoute('/table')"
+                color="green"
+                text="Go Back"
 
-      (btnClick)="goToPage('/')"></app-button>
-  </div>
+                (btnClick)="goToPage('/')"></app-button>
+    </div>
 </header>
