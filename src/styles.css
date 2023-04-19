@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
-@import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
@@ -9,18 +8,31 @@
     padding: 0;
 }
 
+.background {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--surface-ground);
+    background-size: cover;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    padding: 5%;
+}
+
 body {
     font-family: "Poppins", sans-serif;
 }
 
 .container {
     max-width: 1000px;
-    margin: 30px auto;
     overflow: auto;
     min-height: 300px;
-    border: 1px solid steelblue;
+    border: 1px solid green;
     padding: 30px;
     border-radius: 5px;
+    order: 1;
+    flex-grow: 4;
 }
 
 .btn {

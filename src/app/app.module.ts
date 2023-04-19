@@ -14,6 +14,11 @@ import {ToggleButtonModule} from "primeng/togglebutton";
 import {TableComponent} from './components/table/table.component';
 import {RouterModule, Routes} from "@angular/router";
 import {TableModule} from "primeng/table";
+import { TaskContainerComponent } from './components/task-container/task-container.component';
+import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.component';
+import {InputSwitchModule} from "primeng/inputswitch";
+import {MenubarModule} from "primeng/menubar";
+import {TabMenuModule} from "primeng/tabmenu";
 
 const appRoutes: Routes = [
     {path: '', component: TasksComponent},
@@ -28,7 +33,9 @@ const appRoutes: Routes = [
         TasksComponent,
         TaskItemComponent,
         AddTaskComponent,
-        TableComponent
+        TableComponent,
+        TaskContainerComponent,
+        ThemeSwitchComponent
     ],
     imports: [
         BrowserModule,
@@ -38,6 +45,9 @@ const appRoutes: Routes = [
         ToggleButtonModule,
         RouterModule.forRoot(appRoutes),
         TableModule,
+        InputSwitchModule,
+        MenubarModule,
+        TabMenuModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

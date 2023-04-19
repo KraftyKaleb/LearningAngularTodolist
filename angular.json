@@ -25,7 +25,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              {
+                "input": "src/dark-bootstrap-blue.css",
+                "bundleName": "dark-bootstrap-blue",
+                "inject": false
+              },
+              {
+                "input": "src/light-bootstrap-blue.css",
+                "bundleName": "light-bootstrap-blue",
+                "inject": false
+              }
             ],
             "scripts": []
           },

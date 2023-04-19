@@ -1,4 +1,6 @@
 <header>
+    <!--<p-tabMenu [model]="items"></p-tabMenu>-->
+
     <h1>{{ title }}</h1>
     <div class="buttons">
         <app-button
@@ -18,5 +20,8 @@
                 text="Go Back"
 
                 (btnClick)="goToPage('/')"></app-button>
+        <div class="switch">
+            <p-inputSwitch [(ngModel)]="darkMode" (onChange)="toggleTheme()"></p-inputSwitch>
+        </div>
     </div>
 </header>
