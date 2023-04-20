@@ -3,6 +3,7 @@ import {ThemeService} from "../../services/theme.service";
 import {UiService} from "../../services/ui.service";
 import {Router} from "@angular/router";
 import {Subscription} from "rxjs";
+import {LoaderInterceptor} from "../../services/loader.interceptor";
 
 @Component({
     selector: 'app-task-container',
@@ -13,7 +14,7 @@ export class TaskContainerComponent {
     showAddTask!: boolean;
     themeSubscription!: Subscription;
 
-    constructor(private uiService: UiService, private router: Router, private themeService: ThemeService) {
+    constructor(private uiService: UiService, private router: Router, private themeService: ThemeService, public loaderInterceptor: LoaderInterceptor) {
         this.themeSubscription = this.uiService.onToggle().subscribe(value => (this.showAddTask = value));
     }
     ngOnInit(): void {

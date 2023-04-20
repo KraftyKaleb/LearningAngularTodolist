@@ -7,11 +7,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-}
-
-switch {
-    color: green;
 }
 
 /* Add a black background color to the top navigation */
@@ -40,4 +35,9 @@ switch {
 .topnav a.active {
     background-color: #04AA6D;
     color: white;
+}
+
+h1 {
+    padding-left: 10px;
+    padding-right: 10px;
 }

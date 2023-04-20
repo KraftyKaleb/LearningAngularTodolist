@@ -1,6 +1,4 @@
 import {Component} from '@angular/core';
-import {Subscription} from "rxjs";
-import {ThemeService} from "../../services/theme.service";
 import {MenuItem} from "primeng/api";
 
 @Component({
@@ -10,24 +8,13 @@ import {MenuItem} from "primeng/api";
 })
 export class HeaderComponent {
     title = 'To-Do!';
-    darkMode!: boolean;
-    themeSubscription!: Subscription;
     items!: MenuItem[];
-
-    constructor(private themeService: ThemeService) {
-        this.darkMode = themeService.getTheme();
-        this.themeSubscription = this.themeService.onToggle().subscribe(value => (this.darkMode = value));
-    }
 
     ngOnInit() {
         this.items = [
-            { label: 'Home', routerLink: ['/']},
-            { label: 'Table', routerLink: ['/table']},
-            { label: 'About', disabled: true, tooltip: 'Coming soon!'}
+            {label: 'Home', routerLink: ['/']},
+            {label: 'Table', routerLink: ['/table']},
+            {label: 'About', disabled: true, tooltip: 'Coming soon!'}
         ];
-    }
-
-    toggleTheme() {
-        this.themeService.toggleTheme();
     }
 }

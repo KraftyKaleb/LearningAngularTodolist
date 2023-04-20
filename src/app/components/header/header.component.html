@@ -1,8 +1,7 @@
 <header>
     <h1>{{ title }}</h1>
-    <p-menubar [model]="items"></p-menubar>
-    <div class="switch">
-        <p-inputSwitch [(ngModel)]="darkMode" (onChange)="toggleTheme()"></p-inputSwitch>
+    <div class="menuitems">
+        <p-menubar class="menuitems" [model]="items"></p-menubar>
     </div>
-
+    <app-theme-switch></app-theme-switch>
 </header>

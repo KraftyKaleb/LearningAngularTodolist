@@ -1,3 +1,6 @@
+<div *ngIf="loaderInterceptor.isLoading | async" class="progress-bar">
+    <p-progressBar mode="indeterminate" [style]="{'height': '1px'}"></p-progressBar>
+</div>
 <div class="background">
     <div class="container">
         <router-outlet></router-outlet>

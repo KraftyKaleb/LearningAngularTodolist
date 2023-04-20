@@ -92,3 +92,18 @@ body {
     flex: 2;
     height: 20px;
 }
+
+.progress-bar {
+    width: 100%
+}
+
+i.pi.pi-moon.pi-moon {
+    font-size: 175%;
+}
+i.pi.pi-sun.pi-sun {
+    font-size: 175%;
+}
+
+.p-menubar.p-menubar {
+    justify-content: space-between;
+}

@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {HttpClientModule} from '@angular/common/http'
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import {FormsModule} from "@angular/forms";
 
 import {AppComponent} from './app.component';
@@ -19,6 +19,8 @@ import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.com
 import {InputSwitchModule} from "primeng/inputswitch";
 import {MenubarModule} from "primeng/menubar";
 import {TabMenuModule} from "primeng/tabmenu";
+import {ProgressBarModule} from "primeng/progressbar";
+import {LoaderInterceptor} from "./services/loader.interceptor";
 
 const appRoutes: Routes = [
     {path: '', component: TasksComponent},
@@ -48,8 +50,13 @@ const appRoutes: Routes = [
         InputSwitchModule,
         MenubarModule,
         TabMenuModule,
+        ProgressBarModule,
     ],
-    providers: [],
+    providers: [
+        LoaderInterceptor, {
+            provide: HTTP_INTERCEPTORS, useExisting: LoaderInterceptor, multi: true
+        }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
