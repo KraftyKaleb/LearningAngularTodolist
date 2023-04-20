@@ -1,7 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
 import {Observable, Subject} from "rxjs";
 import {DOCUMENT} from "@angular/common";
-import {CookieService} from "ngx-cookie-service";
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +8,7 @@ import {CookieService} from "ngx-cookie-service";
 export class ThemeService {
     private subject = new Subject<any>();
 
-    constructor(@Inject(DOCUMENT) private document: Document, private cookieService: CookieService) {
+    constructor(@Inject(DOCUMENT) private document: Document) {
         console.log(this.getPreviouslyEnabled());
         if (this.getPreviouslyEnabled()) {
             this.toggleStyle()
@@ -21,7 +20,7 @@ export class ThemeService {
     toggleTheme(): void {
         this.darkMode = !this.darkMode;
         this.toggleStyle()
-        this.cookieService.set('theme-preference', String(this.darkMode));
+        localStorage.setItem('theme-preference', String(this.darkMode));
 
     }
 
@@ -46,12 +45,12 @@ export class ThemeService {
     }
 
     hasPreviouslyEnabled(): boolean {
-        return this.cookieService.check('theme-preference');
+        return localStorage.getItem('theme-preference') !== null;
     }
 
     private getPreviouslyEnabled(): boolean {
         if (this.hasPreviouslyEnabled()) {
-            return (this.cookieService.get('theme-preference') === 'true')
+            return (localStorage.getItem('theme-preference') === 'true')
         } else return false;
     }
 }
